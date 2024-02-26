@@ -1,0 +1,22 @@
+.menu{
+    list-style-type: none;
+    font-family: sans-serif;
+    font-size: 2vw;
+}
+
+
+.menu-item:hover{
+    background-color:cyan; 
+    color:black;
+    cursor:pointer;
+}
+
+.title{
+    font-family: sans-serif;
+    font-size: 3vw;
+    border:1px solid black;
+    padding: 0.5em;
+    text-align: center;
+    background-color: orange;
+   width:auto; 
+}

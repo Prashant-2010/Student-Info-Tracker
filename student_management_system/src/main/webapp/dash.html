@@ -1,0 +1,49 @@
+<!-- Create a student management system for tracking student information, grades, and attendance using client
+     server architecture. -->
+
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Home</title>
+         <link rel="stylesheet" href="dash.css">
+     </head>
+     <body>
+         <ul class="menu">
+             <li class="title">Welcome to Student Management System</li>
+             <li class="menu-item" id="fetchDataText">Biodata</li>
+             <li class="menu-item">Academics</li>
+             <li class="menu-item">Attendance</li>
+             <li class="menu-item">Performance</li>
+             <li class="menu-item">Extra-Curricular</li>
+             <li class="menu-item">Achievements</li>
+         </ul>
+           <div id="fetchDataResult"></div>
+         <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the clickable text element
+            var fetchDataText = document.getElementById('fetchDataText');
+
+            // Add a click event listener
+            fetchDataText.addEventListener('click', function () {
+                // Perform an AJAX request to the FetchData servlet
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'FetchData', true);
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+                // Handle the response from the servlet
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        // Display the fetched data in a result div
+                        document.getElementById('fetchDataResult').innerHTML = xhr.responseText;
+                    }
+                };
+
+                // Send the request
+                xhr.send();
+            });
+        });
+    </script>
+     </body>
+     </html>

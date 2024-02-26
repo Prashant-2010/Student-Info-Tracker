@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sign.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/f1121f69f7.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="angular.min.js"></script>
+<script src="login.js"></script>
+</head>
+<body ng-controller="myController">
+    <nav>
+		<label class="logo">Student Management System</label>
+
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="dashboard.jsp">student</a></li>
+			<li><a href="sign.html" class="btn btn-success">Login</a></li>
+		</ul>
+	</nav>
+
+    <div class="container">
+      <div class="form-box">
+            <h1 id="title">Sign In</h1>
+            <form id="loginForm" action="LoginServlet" method="GET">
+<div class="input-group">
+    <div class="input-field" id="name-field">
+        <i class="fa-regular fa-user"></i>
+        <input type="text" placeholder="Name" ng-model="loginData.name" name="userName">
+
+    </div>
+</div>
+<div class="input-field">
+    <i class="fa-regular fa-envelope"></i>
+    <input type="email" placeholder="Email" ng-model="loginData.email" name="userEmail">
+
+</div>
+<div class="input-field">
+    <i class="fa-solid fa-lock"></i>
+    <input type="password" placeholder="Password" ng-model="loginData.pass" name="userPassword">
+
+</div>
+<div class="btn-field">
+    <button type="button" id="signupbtn" class="disable-btn" ng-click="saveInfo()" onclick="sucess()">Sign up</button>
+    <button type="submit" id="signinbtn" >Sign in</button>
+</div>
+</div>
+            </form>
+        </div>
+    </div>
+   <script>
+    let signin = document.getElementById("signinbtn");
+    let signup = document.getElementById("signupbtn");
+    let namefield = document.getElementById("name-field");
+    let title = document.getElementById("title");
+    let loginForm = document.getElementById("loginForm"); // Add an ID to your form
+
+    signin.onclick = function () {
+        namefield.style.maxHeight = "0";
+        title.innerHTML = "Sign in";
+        signup.classList.add("disable-btn");
+        signin.classList.remove("disable-btn");
+        // Submit the form when Sign in is clicked
+        loginForm.submit();
+    }
+
+    signup.onclick = function () {
+        namefield.style.maxHeight = "60px";
+        title.innerHTML = "Sign up";
+        signup.classList.remove("disable-btn");
+        signin.classList.add("disable-btn");
+    }
+    
+    let sucess=function(){
+		alert("Register Sucessfully");
+	}
+</script>
+
+
+<footer>
+    <h3 class="footer_text">All @copyright:2023 reserved </h3>
+</footer>
+
+</body>
+</html>
